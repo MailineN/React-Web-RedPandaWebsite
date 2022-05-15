@@ -1,0 +1,16 @@
+.navBarLogo{
+    width: 50px;
+    padding: 5px;
+}
+.navbar-header{
+    padding: 20px;
+    font-weight: bolder;
+    font-size: large;
+}
+.menu-icon{
+    color: black;
+}
+.navBarMenuIcon{
+    width: 20px;
+    padding: 15px;
+}
