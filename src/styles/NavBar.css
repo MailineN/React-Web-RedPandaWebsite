@@ -1,16 +1,72 @@
 .navBarLogo{
-    width: 50px;
-    padding: 5px;
+    width: 60px;
+    margin-right: 20px;
+    margin-top: 15px;
 }
 .navbar-header{
-    padding: 20px;
+    padding: 10px;
     font-weight: bolder;
-    font-size: large;
+    font-size: xxx-large;
+    color : #F1EEE9;
 }
 .menu-icon{
-    color: black;
+    color: #F1EEE9;
 }
 .navBarMenuIcon{
-    width: 20px;
+    width: 25px;
     padding: 15px;
+}
+.navbar{
+    background: #1B2430;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+}
+
+.nav-item {
+    height: 80px;
+    font-weight: bold;
+}
+
+.nav-links {
+    color : #F1EEE9;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    font-size: larger;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 60vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.nav-menu.active {
+    background: lightsteelblue;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    height: 120px;
 }
