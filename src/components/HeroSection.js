@@ -1,10 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button} from "./Button";
 import '../styles/HeroSection.css'
 import '../App.css';
 
 function HeroSection(){
     // TODO : Ajouter de la lecture de la video
+    const [click,setClick] = useState(false)
+    const openInNewTab = () => {
+        const newWindow = window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            '_blank',
+            'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+    const handleClick = () => {
+        setClick(!click)
+        if (click){openInNewTab()};
+        console.log("Open Video")
+    } ;
     return (
         <div className='Hero-container'>
             <h1>HELLO THERE</h1>
@@ -15,13 +27,13 @@ function HeroSection(){
                     buttonStyle='btn--outline'
                     buttonSize='btn--large'
                 >
-                    GET STARTED
+                    DOWNLOAD GAME
                 </Button>
                 <Button
                     className='btns'
                     buttonStyle='btn--outline'
                     buttonSize='btn--large'
-                    onClick={console.log('hey')}
+                    onClick={console.log("CheckIfAutoClicked")}
                 > WATCH TRAILER <i className='far fa-play-circle' />
                 </Button>
             </div>

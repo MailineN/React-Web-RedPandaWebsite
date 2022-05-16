@@ -10,10 +10,9 @@ function App() {
   return (
       <Router>
           <NavBar/>
-          <HeroSection/>
           <Routes>
-              <Route path='/' exact component={Home}/>
-              <Route path='/services' component={Services} />
+              <Route path='/' exact element={<Home/>}/>
+              <Route path='/services' element={<Services/>} />
           </Routes>
       </Router>
 

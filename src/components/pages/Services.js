@@ -1,7 +1,10 @@
 import React from 'react';
 import '../../App.css';
+import DescriptionGame from "../DescriptionGame";
 
 function Services() {
-    return <h1 className='services'>SERVICES</h1>;
+    return <>
+        <DescriptionGame/>
+    </>
 }
 export default Services
