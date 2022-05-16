@@ -13,8 +13,7 @@ function HeroSection(){
         if (newWindow) newWindow.opener = null
     }
     const handleClick = () => {
-        setClick(!click)
-        if (click){openInNewTab()};
+        openInNewTab();
         console.log("Open Video")
     } ;
     return (
@@ -33,7 +32,7 @@ function HeroSection(){
                     className='btns'
                     buttonStyle='btn--outline'
                     buttonSize='btn--large'
-                    onClick={console.log("CheckIfAutoClicked")}
+                    onClick={()=> handleClick()}
                 > WATCH TRAILER <i className='far fa-play-circle' />
                 </Button>
             </div>

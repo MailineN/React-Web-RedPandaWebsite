@@ -15,26 +15,32 @@
     position: absolute;
     left: 10px;
     justify-content: flex-end;
-    background: #47505E;
+    background: #3B495E;
     padding: 20px;
     z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .Game-desc-title{
     color: #F1EEE9;
-    font-size: 20px;
+    opacity: 0.5;
+    font-weight: normal;
+    font-size: 45px;
+    font-family: 'PT Sans', serif;
+    padding-bottom: 23px;
 }
 
 .Game-desc-text{
     color: #F1EEE9;
-    font-size: 10px;
-    margin: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    margin-top: 10px;
+    line-height: 1.5;
+    font-family: 'Sora', serif;
 }
 .Game-image{
     background: url('../assets/palicoService.jpeg') center center/cover no-repeat;
     height: 80%;
     width: 90%;
+    opacity: 0.9;
     display: flex;
     flex-direction: column;
     position: absolute;
