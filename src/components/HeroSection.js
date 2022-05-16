@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button} from "./Button";
+import {Button} from "./utils/Button";
 import '../styles/HeroSection.css'
 import '../App.css';
 

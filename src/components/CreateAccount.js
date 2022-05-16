@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Button} from "./Button";
+import React, {useEffect, useState} from "react";
+import {Button} from "./utils/Button";
 import '../styles/CreateAccount.css'
 import validator from 'validator'
 
@@ -8,6 +8,9 @@ function CreateAccount(){
     const [email, setEmail] =useState('');
     const [password, setPassword] = useState('');
     const [passwordC, setPasswordC] = useState('');
+    const [file, setFile] = useState(null);
+    const [fileDataURL, setFileDataURL] = useState(null);
+    const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
     const [emailError, setEmailError] = useState('')
     const [nameError, setnameError] = useState('')
@@ -40,6 +43,35 @@ function CreateAccount(){
             setPasswordError('')
         }
     }
+
+    const changeHandler = (e) => {
+        const file = e.target.files[0];
+        if (!file.type.match(imageMimeType)) {
+            alert("Image type is not valid");
+            return;
+        }
+        setFile(file);
+    }
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (file) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(file);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [file]);
     function handleSubmit(event) {
         //event.preventDefault();
         validateInput()
@@ -92,6 +124,21 @@ function CreateAccount(){
                                 onChange={(e) => setPasswordC(e.target.value)}
                             />
                             <span className='error-message'>{passwordError}</span>
+                        </div>
+                        <div>
+                            <label className='form-cat' htmlFor="image">(Optional) Profile Picture:</label>
+                            <input
+                                id="file"
+                                type="file"
+                                accept='.png, .jpg, .jpeg'
+                                onChange={changeHandler}
+                            />
+                            {fileDataURL ?
+                                <p className="img-preview-wrapper">
+                                    {
+                                        <img src={fileDataURL} alt="preview" />
+                                    }
+                                </p> : null}
                         </div>
                     </form>
                 </div>

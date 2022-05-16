@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import {Button} from "./Button";
+import {Button} from "./utils/Button";
 import '../styles/DescriptionGame.css'
 //import '../App.css';
 

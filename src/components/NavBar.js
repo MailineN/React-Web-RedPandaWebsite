@@ -4,7 +4,7 @@ import iconRedPanda from '../assets/iconRedPanda.png'
 import '../styles/NavBar.css'
 import closeMenu from '../assets/closeMenu.png'
 import menuBar from '../assets/menuBar.png'
-import {Button} from "./Button";
+import {Button} from "./utils/Button";
 
 function NavBar(){
     const [click,setClick] = useState(false);
