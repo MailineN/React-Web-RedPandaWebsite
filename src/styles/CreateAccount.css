@@ -35,7 +35,6 @@
     margin-top: 5px;
     color: #F1EEE9;
     font-size: 18px;
-    margin-top: 10px;
     line-height: 1.5;
     font-family: 'Sora', serif;
 }
@@ -57,4 +56,13 @@
 
 .form-box textarea{
     height: 15vh;
+}
+
+.error-message{
+    margin-top: 5px;
+    color: lightcoral;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: bold;
+    font-family: 'Sora', serif;
 }

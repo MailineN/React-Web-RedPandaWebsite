@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Button} from "./Button";
 import '../styles/CreateAccount.css'
+import validator from 'validator'
 
 function CreateAccount(){
     const [name, setName] = useState('');
@@ -8,8 +9,40 @@ function CreateAccount(){
     const [password, setPassword] = useState('');
     const [passwordC, setPasswordC] = useState('');
 
+    const [emailError, setEmailError] = useState('')
+    const [nameError, setnameError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const validateEmail = (email) => {
+
+        if (validator.isEmail(email)) {
+            setEmail(email)
+            console.log("Valid Email")
+        } else {
+            setEmailError('Enter valid Email!')
+            setEmail('')
+            console.log("Invalid Email")
+        }
+    }
+    const validateInput = () =>{
+        if (name.length <= 1){
+            setnameError("You must enter a name!")
+            console.log('No name error')
+        } else {
+            setnameError('')
+        }
+        validateEmail(email)
+        if (password !== passwordC){
+            setPasswordError("Passwords do not match :(")
+            setPassword('')
+            setPasswordC('')
+            console.log("Password not match error")
+        } else {
+            setPasswordError('')
+        }
+    }
     function handleSubmit(event) {
-        event.preventDefault();
+        //event.preventDefault();
+        validateInput()
         console.log('name:', name);
         console.log('email:', email);
     }
@@ -28,6 +61,7 @@ function CreateAccount(){
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
+                            <span className='error-message'>{nameError}</span>
                         </div>
                         <div>
                             <label className='form-cat' htmlFor="email">Email:</label>
@@ -38,6 +72,7 @@ function CreateAccount(){
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            <span className='error-message'>{emailError}</span>
                         </div>
                         <div>
                             <label className='form-cat' htmlFor="password">Password:</label>
@@ -56,6 +91,7 @@ function CreateAccount(){
                                 value={passwordC}
                                 onChange={(e) => setPasswordC(e.target.value)}
                             />
+                            <span className='error-message'>{passwordError}</span>
                         </div>
                     </form>
                 </div>
