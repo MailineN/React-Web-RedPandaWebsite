@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Button} from "./utils/Button";
 import '../styles/HeroSection.css'
 import '../App.css';
+import DownloadFileGame from "./utils/DownloadFileGame";
 
 function HeroSection(){
     // TODO : Ajouter de la lecture de la video
@@ -25,6 +26,7 @@ function HeroSection(){
                     className='btns'
                     buttonStyle='btn--outline'
                     buttonSize='btn--large'
+                    onClick={()=> DownloadFileGame()}
                 >
                     DOWNLOAD GAME
                 </Button>
